@@ -17,13 +17,13 @@ To build the project, ensure you have the SDL2 library installed on your system.
 For fish:
 
 ```bash
-gcc -o iv iv.c (sdl2-config --cflags --libs)
+gcc -o iv iv.c ppm.c (sdl2-config --cflags --libs)
 ```
 
 For bash/zsh:
 
 ```bash
-gcc -o iv iv.c `sdl2-config --cflags --libs`
+gcc -o iv iv.c ppm.c `sdl2-config --cflags --libs`
 ```
 
 To run the image viewer, use the following command:
