@@ -1,4 +1,6 @@
 #include "ppm.h"
+
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,37 +40,6 @@ static void read_ppm_header(FILE *fp, int *width, int *height, int *is_p6) {
 
     // consume the newline after maxval
     while (fgetc(fp) != '\n' && !feof(fp)) { /* skip whitespace */ }
-}
-
-Image *image_create(int width, int height) {
-    Image *img = malloc(sizeof(Image));
-    if (!img) return NULL;
-
-    img->width = width;
-    img->height = height;
-
-    img->data = malloc((size_t)width * height *height * sizeof(Pixel));
-    if (!img->data) { free(img); return NULL; }
-
-    img->pixels = malloc(height * sizeof(Pixel *));
-    if (!img->pixels) {
-        free(img->data);
-        free(img);
-        return NULL;
-    }
-
-    for (int y = 0; y < height; y++) {
-        img->pixels[y] = img->data + y * width;
-    }
-    return img;
-}
-
-void image_free(Image *img) {
-    if (img) {
-        free(img->pixels);
-        free(img->data);
-        free(img);
-    }
 }
 
 static void read_p6(FILE *fp, Image *img) {

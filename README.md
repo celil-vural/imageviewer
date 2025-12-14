@@ -17,17 +17,17 @@ To build the project, ensure you have the SDL2 library installed on your system.
 For fish:
 
 ```bash
-gcc -o iv iv.c ppm.c (sdl2-config --cflags --libs)
+gcc -o iv iv.c utils.c ppm.c png.c (sdl2-config --cflags --libs) -lz
 ```
 
 For bash/zsh:
 
 ```bash
-gcc -o iv iv.c ppm.c `sdl2-config --cflags --libs`
+gcc -o iv iv.c utils.c ppm.c png.c (sdl2-config --cflags --libs) -lz
 ```
 
 To run the image viewer, use the following command:
 
 ```bash
-./iv <path_to_ppm_image>.ppm
+./iv <path_to_ppm_image>.[ppm/png]
 ```
