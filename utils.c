@@ -1,20 +1,21 @@
 #include "utils.h"
+
+#include <stdio.h>
 #include <stdlib.h>
 
-Image *image_create(int width, int height) {
+Image *image_create(const int width, const int height) {
     Image *img = malloc(sizeof(Image));
     if (!img) return NULL;
 
     img->width = width;
     img->height = height;
-
-    img->data = malloc((size_t)width * height * sizeof(Pixel));
+    img->data = malloc((size_t)width * height *height *  sizeof(Pixel));
     if (!img->data) {
         free(img);
         return NULL;
     }
 
-    img->pixels = malloc(height * sizeof(Pixel *));
+    img->pixels = malloc(height *  sizeof(Pixel *));
     if (!img->pixels) {
         free(img->data);
         free(img);

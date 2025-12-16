@@ -97,7 +97,8 @@ int main(const int argc, char *argv[]) {
 	if (SDL_MUSTLOCK(surf)) SDL_LockSurface(surf);
 
 	Uint32 *pixels = surf->pixels;
-	const uint8_t pitch = surf->pitch / sizeof(Uint32);
+	const int pitch = surf->pitch / sizeof(Uint32);
+
 
 	for (int y = 0; y < img->height; y++) {
 		for (int x = 0; x < img->width; x++) {

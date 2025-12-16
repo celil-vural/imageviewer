@@ -1,7 +1,3 @@
-//
-// Created by celilvural on 12/15/25.
-//
-
 #ifndef IMGAVIEWER_UTILS_H
 #define IMGAVIEWER_UTILS_H
 #include <stdint.h>
